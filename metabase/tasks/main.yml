@@ -1,0 +1,27 @@
+---
+# tasks file for metabase
+
+- name: Atualiza todos os pacotes
+  yum:
+    name: '*'
+    state: latest
+  become: true
+
+- name: Instalando OpenJDK 1.8.0
+  yum:
+    name: java-1.8.0-openjdk.x86_64
+    state: latest
+  become: true
+
+- name: Criando diretório do Metabase
+  file:
+    path: /opt/metabase
+    state: directory
+    mode: 0755
+  become: true
+
+- name: Download Metabase
+  get_url:
+    url: http://downloads.metabase.com/v0.28.1/metabase.jar
+    dest: /opt/metabase/metabase_0.28.1.jar
+  become: true

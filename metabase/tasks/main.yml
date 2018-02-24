@@ -30,3 +30,7 @@
   shell: "java -jar /opt/metabase/metabase_0.28.1.jar"
   async: 2629746 # 1 mês em segundos
   become: true
+
+- name: Adicionando regra de acesso para porta 3000
+  shell: "iptables -A IN_public_allow -p tcp --dport 3000 -j ACCEPT"
+  become: true

@@ -25,3 +25,8 @@
     url: http://downloads.metabase.com/v0.28.1/metabase.jar
     dest: /opt/metabase/metabase_0.28.1.jar
   become: true
+
+- name: Iniciando Metabase em background
+  shell: "java -jar /opt/metabase/metabase_0.28.1.jar"
+  async: 2629746 # 1 mês em segundos
+  become: true

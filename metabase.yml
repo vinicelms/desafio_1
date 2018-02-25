@@ -1,0 +1,6 @@
+---
+# Instalação do Metabase
+
+- hosts: metabase
+  roles:
+    - { role: roles/desafio_1/metabase }
